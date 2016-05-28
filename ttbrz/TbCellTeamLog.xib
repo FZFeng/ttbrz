@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TbCellTeamLog" rowHeight="81" id="KGk-i7-Jjw" userLabel="TbCellTeamLog" customClass="TbCellTeamLog">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3y-Ld-dPa" userLabel="viewTitle">
+                        <rect key="frame" x="15" y="0.0" width="290" height="35"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rU-qU-fsT" userLabel="lblMemberMark">
+                                <rect key="frame" x="0.0" y="5" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.6705882353" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WhO-ry-oA3"/>
+                                    <constraint firstAttribute="width" constant="30" id="feX-l3-dYb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhB-Ph-1Nh" userLabel="lblTeamLogState">
+                                <rect key="frame" x="235" y="5" width="55" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="Wfh-N0-sn3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-7j-gdt" userLabel="lblTeamMemberName">
+                                <rect key="frame" x="35" y="5" width="200" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oaR-6o-PIz" userLabel="imageMemberIcon">
+                                <rect key="frame" x="0.0" y="5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MqR-rw-6lS"/>
+                                    <constraint firstAttribute="width" constant="30" id="R1u-HX-pQ4"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hhB-Ph-1Nh" secondAttribute="trailing" id="0OS-pw-2NI"/>
+                            <constraint firstItem="ThU-7j-gdt" firstAttribute="top" secondItem="H3y-Ld-dPa" secondAttribute="top" constant="5" id="4W6-qJ-LpO"/>
+                            <constraint firstItem="oaR-6o-PIz" firstAttribute="leading" secondItem="H3y-Ld-dPa" secondAttribute="leading" id="DVZ-cm-GSC"/>
+                            <constraint firstItem="1rU-qU-fsT" firstAttribute="leading" secondItem="H3y-Ld-dPa" secondAttribute="leading" id="EYM-gl-C9Y"/>
+                            <constraint firstItem="hhB-Ph-1Nh" firstAttribute="leading" secondItem="ThU-7j-gdt" secondAttribute="trailing" id="Evi-ju-oSO"/>
+                            <constraint firstItem="hhB-Ph-1Nh" firstAttribute="top" secondItem="H3y-Ld-dPa" secondAttribute="top" constant="5" id="NbF-4p-vne"/>
+                            <constraint firstItem="ThU-7j-gdt" firstAttribute="leading" secondItem="1rU-qU-fsT" secondAttribute="trailing" constant="5" id="QnU-Qj-t7R"/>
+                            <constraint firstAttribute="height" constant="35" id="ZRw-xH-Mcw"/>
+                            <constraint firstAttribute="bottom" secondItem="ThU-7j-gdt" secondAttribute="bottom" id="eDG-7b-l4K"/>
+                            <constraint firstAttribute="bottom" secondItem="hhB-Ph-1Nh" secondAttribute="bottom" id="egt-4t-4CR"/>
+                            <constraint firstItem="oaR-6o-PIz" firstAttribute="top" secondItem="H3y-Ld-dPa" secondAttribute="top" constant="5" id="muM-si-b1z"/>
+                            <constraint firstAttribute="bottom" secondItem="1rU-qU-fsT" secondAttribute="bottom" id="xto-80-7eC"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYN-Fh-rj7" userLabel="viewLine">
+                        <rect key="frame" x="45" y="40" width="260" height="1"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="2VU-OP-PXk"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ka3-Oq-stL" userLabel="viewTeamLogDetail">
+                        <rect key="frame" x="45" y="41" width="260" height="39"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="xYN-Fh-rj7" secondAttribute="trailing" constant="15" id="37H-yj-Oe7"/>
+                    <constraint firstAttribute="bottom" secondItem="Ka3-Oq-stL" secondAttribute="bottom" id="3Da-Zn-Sc9"/>
+                    <constraint firstItem="Ka3-Oq-stL" firstAttribute="top" secondItem="xYN-Fh-rj7" secondAttribute="bottom" id="77s-dR-dCk"/>
+                    <constraint firstAttribute="trailing" secondItem="Ka3-Oq-stL" secondAttribute="trailing" constant="15" id="IAy-aI-doF"/>
+                    <constraint firstItem="Ka3-Oq-stL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="45" id="Kg6-hL-jgu"/>
+                    <constraint firstItem="xYN-Fh-rj7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="45" id="Ubj-QJ-fSV"/>
+                    <constraint firstAttribute="trailing" secondItem="H3y-Ld-dPa" secondAttribute="trailing" constant="15" id="VTF-yW-cTZ"/>
+                    <constraint firstItem="xYN-Fh-rj7" firstAttribute="top" secondItem="H3y-Ld-dPa" secondAttribute="bottom" constant="5" id="XlH-pV-d0o"/>
+                    <constraint firstItem="H3y-Ld-dPa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="nzo-SO-Nfh"/>
+                    <constraint firstItem="H3y-Ld-dPa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="t2Q-FO-1zc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="_imageMemberIcon" destination="oaR-6o-PIz" id="W7c-SZ-V0g"/>
+                <outlet property="_lblMemberMark" destination="1rU-qU-fsT" id="Wgk-7p-Oe3"/>
+                <outlet property="_lblTeamLogState" destination="hhB-Ph-1Nh" id="I4c-zR-L5M"/>
+                <outlet property="_lblTeamMemberName" destination="ThU-7j-gdt" id="779-Nd-SqF"/>
+                <outlet property="viewTeamLogDetail" destination="Ka3-Oq-stL" id="eKV-rI-Q4M"/>
+            </connections>
+            <point key="canvasLocation" x="288" y="332.5"/>
+        </tableViewCell>
+    </objects>
+</document>

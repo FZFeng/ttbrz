@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="wVu-fY-sS2">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wVu-fY-sS2" secondAttribute="bottom" id="EL0-xz-bha"/>
+                            <constraint firstAttribute="trailing" secondItem="wVu-fY-sS2" secondAttribute="trailing" id="ZSR-h0-Ssn"/>
+                            <constraint firstItem="wVu-fY-sS2" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="aTo-Jc-HMk"/>
+                            <constraint firstItem="wVu-fY-sS2" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="uNw-BN-cuh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="wVu-fY-sS2"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="EL0-xz-bha"/>
+                                <exclude reference="ZSR-h0-Ssn"/>
+                                <exclude reference="aTo-Jc-HMk"/>
+                                <exclude reference="uNw-BN-cuh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="wVu-fY-sS2"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="EL0-xz-bha"/>
+                                <include reference="ZSR-h0-Ssn"/>
+                                <include reference="aTo-Jc-HMk"/>
+                                <include reference="uNw-BN-cuh"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchImage" width="180" height="262"/>
+    </resources>
+</document>
