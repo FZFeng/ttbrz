@@ -21,7 +21,8 @@
     NSArray *_menuItemArray;
     NSMutableArray *_logDataArray;
     NSMutableArray *_taskDataArray;
-    // 上,下拉时显示的数据
+    
+    //上,下拉时显示的数据
     NSMutableArray *_arryMoreData;
     DownMenuView *_downMenu;
     UIButton *_titleButton;
