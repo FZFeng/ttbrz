@@ -158,16 +158,17 @@
             getImage = [info objectForKey:UIImagePickerControllerOriginalImage];
         }
         
-        NSData *getImageData;
+        //文件名
         NSString *sFileName=[PublicFunc getRandomGUID];
-         if (UIImagePNGRepresentation(getImage) == nil) {
-             getImageData = UIImageJPEGRepresentation(getImage, 1.0f);
-             sFileName=[sFileName stringByAppendingString:@".jpg"];
-         } else {
-             getImageData = UIImagePNGRepresentation(getImage);
-             sFileName=[sFileName stringByAppendingString:@".png"];
-         }
+        if (UIImagePNGRepresentation(getImage) == nil) {
+            sFileName=[sFileName stringByAppendingString:@".jpg"];
+        } else {
+            sFileName=[sFileName stringByAppendingString:@".png"];
+        }
         
+        //压缩图片
+        NSData *getImageData=[PublicFunc resetSizeOfImageData:getImage maxSize:300];
+
         [self upLoadWithFileName:sFileName fileData:getImageData];
         
     }
@@ -216,6 +217,7 @@
     NSString *sParaDataTime=[NSString stringWithFormat:@"DataTime=%@",sTodayDate];
     [arryInfo addObject:sParaDataTime];
     
+    _lblProgressValue.text=@"0%";
     _viewProgress.hidden=NO;
     _lblFileName.text=sFileName;
     _lblFileName.lineBreakMode = NSLineBreakByTruncatingMiddle;//使用截取 在中间省略

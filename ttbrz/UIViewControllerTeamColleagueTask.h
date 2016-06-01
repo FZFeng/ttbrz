@@ -15,5 +15,6 @@
 
 @property (strong,nonatomic)NSMutableArray *arrayGetInitData;
 @property (strong,nonatomic)NSString *sGetDepartmentID;
+@property (strong,nonatomic)NSString *sGetDepartmentName;
 
 @end

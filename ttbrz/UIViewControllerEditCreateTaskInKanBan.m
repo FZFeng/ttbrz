@@ -7,6 +7,8 @@
 //
 
 #import "UIViewControllerEditCreateTaskInKanBan.h"
+#define KEachExecuteUsersHeight 25
+#define KEachExecuteUsersRowNum 4
 
 @interface UIViewControllerEditCreateTaskInKanBan ()<FZDatePickerViewDelegate,UITextFieldDelegate,UITextViewDelegate>{
 
@@ -202,40 +204,41 @@
     }
     
     if (iDataNum>0) {
-        _layoutConstraintHeightExecuteUsers.constant=_iViewH;
+        NSInteger iViewExecuteUsersW=CGRectGetWidth(_viewExecuteUsers.frame);
+        //NSInteger iUserNameSize=KEachExecuteUsersHeight;
+        NSInteger iUserNameW=KEachExecuteUsersHeight;
+        NSInteger iUserNameH=KEachExecuteUsersHeight;
+        NSInteger iTaskProgressW=(iViewExecuteUsersW-iUserNameW*KEachExecuteUsersRowNum)/KEachExecuteUsersRowNum;
+        NSInteger iTaskProgressH=KEachExecuteUsersHeight;
+        NSInteger iCurOriginX=0;
+        NSInteger iCurOriginY=0;
+        NSInteger iGap=5;
+
         
+        //执行人 每行 最多4个执行人
+        NSInteger iExecuteUsersRowNum=iDataNum/KEachExecuteUsersRowNum;
+        NSInteger iAllExecuteUsersHeight=(iExecuteUsersRowNum+1)*KEachExecuteUsersHeight+iExecuteUsersRowNum*iGap;
+        
+        _layoutConstraintHeightExecuteUsers.constant=iAllExecuteUsersHeight;
         for (NSDictionary *dictData in arraySelectedMember) {
             [_arraySelectedMember addObject:dictData];
         }
-        
-        NSInteger iViewExecuteUsersW=CGRectGetWidth(_viewExecuteUsers.frame);
-        NSInteger iGap=5;
-        NSInteger iScrolW=60;
-        NSInteger iLabelSize=iScrolW/2;
-        NSInteger iLblPresentW=40;
-        NSInteger iCurOriginX=0;
-        
-        UIScrollView *scrolMember=[[UIScrollView alloc] initWithFrame:CGRectMake(0,iGap,iViewExecuteUsersW, _iViewH)];
-        scrolMember.bounces=NO;
-        scrolMember.scrollEnabled=YES;
-        scrolMember.showsHorizontalScrollIndicator=NO;
-        scrolMember.showsVerticalScrollIndicator=NO;
-        [_viewExecuteUsers addSubview:scrolMember];
+
         NSInteger iIndex=0;
         for (NSDictionary *curDict in _arraySelectedMember) {
             //执行人
             NSString *sUserName=[curDict objectForKey:@"UserName"];
-            UILabel *lblName=[[UILabel alloc] initWithFrame:CGRectMake(iCurOriginX, 0,iLabelSize, iLabelSize)];
+            UILabel *lblName=[[UILabel alloc] initWithFrame:CGRectMake(iCurOriginX,iCurOriginY,iUserNameW, iUserNameH)];
             lblName.text=[sUserName substringFromIndex:sUserName.length-1];
             lblName.textAlignment=NSTextAlignmentCenter;
             lblName.textColor=[UIColor whiteColor];
-            lblName.font=[UIFont systemFontOfSize:18];
+            lblName.font=[UIFont systemFontOfSize:17];
             lblName.backgroundColor=randomColor;
-            [scrolMember addSubview:lblName];
-            iCurOriginX=iCurOriginX+iLabelSize;
+            [_viewExecuteUsers addSubview:lblName];
+            iCurOriginX=iCurOriginX+iUserNameW;
             
             //完成进度
-            UILabel *lblPersent=[[UILabel alloc] initWithFrame:CGRectMake(iCurOriginX, 0,iLblPresentW, iLabelSize)];
+            UILabel *lblPersent=[[UILabel alloc] initWithFrame:CGRectMake(iCurOriginX,iCurOriginY,iTaskProgressW, iTaskProgressH)];
             lblPersent.text=@"0%";
             
             NSString *sPersent=[curDict objectForKey:@"Persent"];
@@ -245,15 +248,17 @@
             }
             lblPersent.textAlignment=NSTextAlignmentLeft;
             lblPersent.textColor=defaultColor;
-            lblPersent.font=[UIFont systemFontOfSize:15];
+            lblPersent.font=[UIFont systemFontOfSize:14];
             lblPersent.backgroundColor=[UIColor clearColor];
-            [scrolMember addSubview:lblPersent];
-            iCurOriginX=iCurOriginX+iLblPresentW+iGap;
+            [_viewExecuteUsers addSubview:lblPersent];
+            iCurOriginX=iCurOriginX+iTaskProgressW;
             
             iIndex++;
-        }
-        if (iCurOriginX>iViewExecuteUsersW){
-            scrolMember.contentSize=CGSizeMake(iCurOriginX, 0);
+            if (iIndex%KEachExecuteUsersRowNum==0) {
+                iCurOriginX=0;
+            }
+            iCurOriginY=(iIndex/KEachExecuteUsersRowNum)*KEachExecuteUsersHeight+(iIndex/KEachExecuteUsersRowNum)*iGap;
+            
         }
     }else if (iDataNum==0){
         _layoutConstraintHeightExecuteUsers.constant=0;

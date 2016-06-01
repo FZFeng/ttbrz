@@ -319,45 +319,36 @@
     }else{
         myCell.viewDetail.hidden=NO;
         
-        //去掉,
+        //去掉, 最多只显示5个执行人
         sExecuteUserName=[sExecuteUserName substringToIndex:sExecuteUserName.length-1];
-        NSInteger iDataNum;
-        NSArray *arrayUser=[sExecuteUserName componentsSeparatedByString:@","];
-        iDataNum=arrayUser.count;
         
-        NSInteger iViewUsers=CGRectGetWidth(myCell.viewUsers.frame);
-        NSInteger iGap=5;
-        NSInteger iScrolW=60;
-        NSInteger iLabelSize=25;
+        NSInteger iMaxExecuteUserNum=5;
+        NSInteger iViewUsersW=CGRectGetWidth(myCell.viewUsers.frame);
+        NSInteger iLabelSize=20;
         NSInteger iCurOriginX=0;
         NSInteger iViewUsersH=CGRectGetHeight(myCell.viewUsers.frame);
+        NSInteger iGap=(iViewUsersW-iLabelSize*iMaxExecuteUserNum)/(iMaxExecuteUserNum-1);;
+        NSArray *arrayUser=[sExecuteUserName componentsSeparatedByString:@","];
+        NSInteger iDataNum=arrayUser.count;
+        if (iDataNum>5) {
+            iDataNum=iMaxExecuteUserNum;
+        }
         
         //清除原来旧的view
         for (UIView *subView in [myCell.viewUsers subviews]) {
             [subView removeFromSuperview];
         }
 
-        UIScrollView *scrolMember=[[UIScrollView alloc] initWithFrame:CGRectMake(0,0,iViewUsers, iViewUsersH)];
-        scrolMember.bounces=NO;
-        scrolMember.scrollEnabled=YES;
-        scrolMember.showsHorizontalScrollIndicator=NO;
-        scrolMember.showsVerticalScrollIndicator=NO;
-        scrolMember.contentSize=CGSizeMake(iScrolW*iDataNum+iGap*(iDataNum-1), 0);
-        [myCell.viewUsers addSubview:scrolMember];
-        
-        for (NSString *sUserName in arrayUser) {
+        for (int i=0; i<=iDataNum-1; i++) {
+            NSString *sUserName=[arrayUser objectAtIndex:i];
             UILabel *lblName=[[UILabel alloc] initWithFrame:CGRectMake(iCurOriginX,(iViewUsersH-iLabelSize)/2,iLabelSize, iLabelSize)];
             lblName.text=[sUserName substringFromIndex:sUserName.length-1];
             lblName.textAlignment=NSTextAlignmentCenter;
             lblName.textColor=[UIColor whiteColor];
-            lblName.font=[UIFont systemFontOfSize:18];
+            lblName.font=[UIFont systemFontOfSize:17];
             lblName.backgroundColor=randomColor;
-            [scrolMember addSubview:lblName];
+            [myCell.viewUsers addSubview:lblName];
             iCurOriginX=iCurOriginX+iLabelSize+iGap;
-        }
-        
-        if (iCurOriginX>iViewUsers) {
-            scrolMember.contentSize=CGSizeMake(iCurOriginX, 0);
         }
     }
     

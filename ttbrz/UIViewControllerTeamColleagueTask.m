@@ -34,6 +34,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 35)];
+    lblTitle.text=self.sGetDepartmentName;
+    lblTitle.textAlignment=NSTextAlignmentCenter;
+    lblTitle.textColor=[UIColor whiteColor];
+    lblTitle.backgroundColor=[UIColor clearColor];
+    self.navigationItem.titleView=lblTitle;
+    
     //注册cell
     UINib *nibCell=[UINib nibWithNibName:@"TbCellTaskColleagueInfo" bundle:nil];
     [_tbColleagueView registerNib:nibCell forCellReuseIdentifier:@"TbCellTaskColleagueInfo"];
@@ -317,6 +324,9 @@
                             //插入数据
                             for (NSDictionary *dictData in returnArray) {
                                 [self.arrayGetInitData addObject:dictData];
+                                
+                                NSDictionary *curDict=[[NSDictionary alloc] initWithObjectsAndKeys:@"no",@"expanded", nil];
+                                [_arryExpand addObject:curDict];
                             }
                             [_tbColleagueView reloadData];
                         }

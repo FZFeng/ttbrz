@@ -110,15 +110,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ClassTask *cClassTaskData=[_arryDepartment objectAtIndex:indexPath.row];
-    [ClassTask getDeptTaskPlanListWithCompanyID:[SystemPlist GetCompanyID] userID:[SystemPlist GetUserID] pageindex:1 pagesize:5 deptid:cClassTaskData.sDeptID fatherObject:self returnBlock:^(BOOL bReturn, NSArray *returnArray) {
+    ClassLog *cClassLogData=[_arryDepartment objectAtIndex:indexPath.row];
+    //公司级别的 sDepartmentType 为 空字符串
+    NSString *sDepartmentID=@"";
+    if (![cClassLogData.sDepartmentType isEqualToString:@"0"]) {
+        sDepartmentID=cClassLogData.sDeptID;
+    }
+    
+    [ClassTask getDeptTaskPlanListWithCompanyID:[SystemPlist GetCompanyID] userID:[SystemPlist GetUserID] pageindex:1 pagesize:5 deptid:sDepartmentID fatherObject:self returnBlock:^(BOOL bReturn, NSArray *returnArray) {
         if (bReturn) {
-            UIViewControllerTeamColleagueTask *teamColleagueTaskView=[self.storyboard instantiateViewControllerWithIdentifier:@"UIViewControllerTeamColleagueTask"];
-            teamColleagueTaskView.arrayGetInitData=[returnArray mutableCopy];
-            teamColleagueTaskView.sGetDepartmentID=cClassTaskData.sDeptID;
-            UIBarButtonItem *backItem=[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
-            [self.tabBarController.navigationItem setBackBarButtonItem:backItem];
-            [self.navigationController pushViewController:teamColleagueTaskView animated:YES];
+            if (returnArray.count==0) {
+                [PublicFunc ShowSimpleHUD:@"该部门下没有任务" view:self.view];
+            }else{
+                UIViewControllerTeamColleagueTask *teamColleagueTaskView=[self.storyboard instantiateViewControllerWithIdentifier:@"UIViewControllerTeamColleagueTask"];
+                teamColleagueTaskView.arrayGetInitData=[returnArray mutableCopy];
+                teamColleagueTaskView.sGetDepartmentID=sDepartmentID;
+                teamColleagueTaskView.sGetDepartmentName=cClassLogData.sDeptName;
+                UIBarButtonItem *backItem=[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
+                [self.tabBarController.navigationItem setBackBarButtonItem:backItem];
+                [self.navigationController pushViewController:teamColleagueTaskView animated:YES];
+            }
         }
     }];
     

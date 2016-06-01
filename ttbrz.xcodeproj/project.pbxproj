@@ -1189,7 +1189,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KMHZTechnology.ttbrz;
 				PRODUCT_NAME = "天天报";
-				PROVISIONING_PROFILE = "3a5f170d-e5e4-42f4-b287-39664aaabd1e";
+				PROVISIONING_PROFILE = "d40c6d03-32a0-4062-a1a6-731367e9de61";
 			};
 			name = Debug;
 		};
@@ -1206,7 +1206,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KMHZTechnology.ttbrz;
 				PRODUCT_NAME = "天天报";
-				PROVISIONING_PROFILE = "3a5f170d-e5e4-42f4-b287-39664aaabd1e";
+				PROVISIONING_PROFILE = "d40c6d03-32a0-4062-a1a6-731367e9de61";
 			};
 			name = Release;
 		};
