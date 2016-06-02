@@ -702,9 +702,19 @@
         [viewDetail addSubview:btnBack];
         
         //text
+        //设置红色显示
+        NSString *sSearchKey=_txtSearchKey.text;
+        NSString *sLogContent=[[dictData objectForKey:@"LogContent"] stringByReplacingOccurrencesOfString:@"<br>" withString:@"\r\n"];
+        NSMutableAttributedString *sMutTitle = [[NSMutableAttributedString alloc]initWithString:sLogContent];
+        for (int i=0; i<=sSearchKey.length-1; i++) {
+            NSString *KeyChar=[sSearchKey substringWithRange:NSMakeRange(i, 1)];
+            NSRange range;
+            range = [sLogContent rangeOfString:KeyChar];
+            [sMutTitle addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(range.location, range.length)];
+        }
         UITextView *txtComment=[[UITextView alloc] initWithFrame:CGRectMake(0,iLblTitleH, CGRectGetWidth(viewDetail.frame), CGRectGetHeight(viewDetail.frame)-iLblTitleH)];
         txtComment.textColor=[UIColor darkGrayColor];
-        txtComment.text=[[dictData objectForKey:@"LogContent"] stringByReplacingOccurrencesOfString:@"<br>" withString:@"\r\n"];
+        txtComment.attributedText=sMutTitle;
         txtComment.font=[UIFont systemFontOfSize:15];
         txtComment.editable=NO;
         txtComment.backgroundColor=[UIColor whiteColor];
@@ -801,6 +811,7 @@
             if (bReturn) {
                 UIViewControllerPlanTask *planTaskView=[self.storyboard instantiateViewControllerWithIdentifier:@"UIViewControllerPlanTask"];
                 planTaskView.cGetDetailPlanTaskData=[returnArray firstObject];
+                planTaskView.sGetSearchKey=_txtSearchKey.text;
                 UIBarButtonItem *backItem=[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
                 [self.navigationItem setBackBarButtonItem:backItem];
                 [self.navigationController pushViewController:planTaskView animated:YES];

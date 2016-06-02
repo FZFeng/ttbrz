@@ -13,5 +13,6 @@
 
 @property (strong,nonatomic) ClassLog *cGetDetailPlanTaskData;
 @property (strong,nonatomic) NSString *sGetUserID;
+@property (strong,nonatomic) NSString *sGetSearchKey;
 
 @end

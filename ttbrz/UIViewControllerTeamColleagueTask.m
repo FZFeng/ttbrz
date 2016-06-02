@@ -216,10 +216,10 @@
         if (bReturn) {
             UIViewControllerPlanTask *planTaskView=[self.storyboard instantiateViewControllerWithIdentifier:@"UIViewControllerPlanTask"];
             planTaskView.cGetDetailPlanTaskData=[returnArray firstObject];
-            cClassTaskData=[self.arrayGetInitData objectAtIndex:indexPath.section];
-            planTaskView.sGetUserID=cClassTaskData.sUserID;
+            //cClassTaskData=[self.arrayGetInitData objectAtIndex:indexPath.section];
+            //planTaskView.sGetUserID=cClassTaskData.sUserID;
             UIBarButtonItem *backItem=[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
-            [self.tabBarController.navigationItem setBackBarButtonItem:backItem];
+            [self.navigationItem setBackBarButtonItem:backItem];
             [self.navigationController pushViewController:planTaskView animated:YES];
         }
     }];
@@ -322,8 +322,9 @@
                                 _lblFileTbFooter.text=@"已全部加载完毕";
                             }
                             //插入数据
-                            for (NSDictionary *dictData in returnArray) {
-                                [self.arrayGetInitData addObject:dictData];
+                            for (ClassTask *cClassTaskData in returnArray) {
+                                [self.arrayGetInitData addObject:cClassTaskData];
+                                [_arrayTaskInfo addObject:cClassTaskData.arrayNoCompletedTaskList];
                                 
                                 NSDictionary *curDict=[[NSDictionary alloc] initWithObjectsAndKeys:@"no",@"expanded", nil];
                                 [_arryExpand addObject:curDict];

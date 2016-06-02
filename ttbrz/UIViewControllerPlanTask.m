@@ -8,6 +8,9 @@
 
 #import "UIViewControllerPlanTask.h"
 
+#define KEachExecuteUsersHeight 25
+#define KEachExecuteUsersRowNum 4
+
 @interface UIViewControllerPlanTask (){
     IBOutlet UIView *_viewUserProgressInfo;
     
@@ -17,6 +20,7 @@
     IBOutlet UILabel *lblTitleText;
     IBOutlet UILabel *lblEndTimeText;
     IBOutlet UITextView *txtLogContent;
+    IBOutlet NSLayoutConstraint *_layoutConstraintHeightExecuteUsers;
     
     NSInteger _iViewControlH;
     NSInteger _iViewDetailInfoW;
@@ -60,10 +64,40 @@
         txtLogContent.layer.borderColor=[[UIColor lightGrayColor] CGColor];
         txtLogContent.layer.cornerRadius=5.0;
         txtLogContent.editable=NO;
+        //查找时设置红色设置
+        NSString *sTaskTitle=self.cGetDetailPlanTaskData.sTaskTitle;
+        NSString *sTaskContent=self.cGetDetailPlanTaskData.sTaskContent;
         
-        lblTitleText.text=self.cGetDetailPlanTaskData.sTaskTitle;
+        lblTitleText.text=sTaskTitle;
         lblEndTimeText.text=self.cGetDetailPlanTaskData.sEndDate;
-        txtLogContent.text=self.cGetDetailPlanTaskData.sTaskContent;
+        txtLogContent.text=sTaskContent;
+        
+        if (self.sGetSearchKey && self.sGetSearchKey.length>0) {
+            NSString *sSearchKey=self.sGetSearchKey;
+            //标题
+            if (sTaskTitle && sTaskTitle.length>0) {
+                NSMutableAttributedString *sMutTitle = [[NSMutableAttributedString alloc]initWithString:sTaskTitle];
+                for (int i=0; i<=sSearchKey.length-1; i++) {
+                    NSString *KeyChar=[sSearchKey substringWithRange:NSMakeRange(i, 1)];
+                    NSRange range;
+                    range = [sTaskTitle rangeOfString:KeyChar];
+                    [sMutTitle addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(range.location, range.length)];
+                }
+                lblTitleText.attributedText=sMutTitle;
+            }
+           
+            //内容
+            if (sTaskContent && sTaskContent.length>0) {
+                NSMutableAttributedString *sMutContent = [[NSMutableAttributedString alloc]initWithString:sTaskContent];
+                for (int i=0; i<=sSearchKey.length-1; i++) {
+                    NSString *KeyChar=[sSearchKey substringWithRange:NSMakeRange(i, 1)];
+                    NSRange range;
+                    range = [sTaskContent rangeOfString:KeyChar];
+                    [sMutContent addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(range.location, range.length)];
+                }
+                txtLogContent.attributedText=sMutContent;
+            }
+        }
         
         NSArray *arrayUserInfo=[self.cGetDetailPlanTaskData.sUserInfo componentsSeparatedByString:@"="];
         NSArray *arrayUserID=[[arrayUserInfo firstObject] componentsSeparatedByString:@"|"];
@@ -105,6 +139,7 @@
         }else{
         
             //显示所有任务
+            /*
             UIScrollView *scrolUserProgressInfo=[[UIScrollView alloc] initWithFrame:CGRectMake(0,0, _iViewDetailInfoW, _iViewControlH)];
             scrolUserProgressInfo.bounces=NO;
             scrolUserProgressInfo.scrollEnabled=NO;
@@ -138,6 +173,51 @@
             
             if (iCurOriginX>_iViewDetailInfoW) {
                 scrolUserProgressInfo.contentSize=CGSizeMake(iCurOriginX, _iViewControlH);
+            }*/
+            
+            NSInteger iViewExecuteUsersW=CGRectGetWidth(_viewDetailInfo.frame);
+            NSInteger iUserNameW=KEachExecuteUsersHeight;
+            NSInteger iUserNameH=KEachExecuteUsersHeight;
+            NSInteger iTaskProgressW=(iViewExecuteUsersW-iUserNameW*KEachExecuteUsersRowNum)/KEachExecuteUsersRowNum;
+            NSInteger iTaskProgressH=KEachExecuteUsersHeight;
+            NSInteger iCurOriginX=0;
+            NSInteger iCurOriginY=0;
+            NSInteger iGap=5;
+            NSInteger iDataNum=arrayUserName.count;
+            
+            
+            //执行人 每行 最多4个执行人
+            NSInteger iExecuteUsersRowNum=iDataNum/KEachExecuteUsersRowNum;
+            NSInteger iAllExecuteUsersHeight=(iExecuteUsersRowNum+1)*KEachExecuteUsersHeight+iExecuteUsersRowNum*iGap;
+            _layoutConstraintHeightExecuteUsers.constant=iAllExecuteUsersHeight;
+ 
+            NSInteger iIndex=0;
+            for (NSString *sUserName in arrayUserName) {
+                //执行人
+                UILabel *lblName=[[UILabel alloc] initWithFrame:CGRectMake(iCurOriginX,iCurOriginY,iUserNameW, iUserNameH)];
+                lblName.text=[sUserName substringFromIndex:sUserName.length-1];
+                lblName.textAlignment=NSTextAlignmentCenter;
+                lblName.textColor=[UIColor whiteColor];
+                lblName.font=[UIFont systemFontOfSize:17];
+                lblName.backgroundColor=randomColor;
+                [_viewDetailInfo addSubview:lblName];
+                iCurOriginX=iCurOriginX+iUserNameW;
+                
+                //完成进度
+                UILabel *lblPersent=[[UILabel alloc] initWithFrame:CGRectMake(iCurOriginX,iCurOriginY,iTaskProgressW, iTaskProgressH)];
+                lblPersent.text=[NSString stringWithFormat:@"%@%%",[arrayProgress objectAtIndex:iIndex]];
+                lblPersent.textAlignment=NSTextAlignmentLeft;
+                lblPersent.textColor=defaultColor;
+                lblPersent.font=[UIFont systemFontOfSize:13];
+                lblPersent.backgroundColor=[UIColor clearColor];
+                [_viewDetailInfo addSubview:lblPersent];
+                iCurOriginX=iCurOriginX+iTaskProgressW;
+                
+                iIndex++;
+                if (iIndex%KEachExecuteUsersRowNum==0) {
+                    iCurOriginX=0;
+                }
+                iCurOriginY=(iIndex/KEachExecuteUsersRowNum)*KEachExecuteUsersHeight+(iIndex/KEachExecuteUsersRowNum)*iGap;
             }
         }
   

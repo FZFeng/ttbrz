@@ -273,7 +273,8 @@
                         }else{
                             cLogObject.sLookBoardName=[dictData objectForKey:@"LookBoardName"];
                         }
-                        cLogObject.sTaskContent=[[dictData objectForKey:@"TaskContent"] stringByReplacingOccurrencesOfString:@"<br>" withString:@"\r\n"];
+                        cLogObject.sTaskContent=[PublicFunc filterHTML:[dictData objectForKey:@"TaskContent"]];
+                        
                         cLogObject.sUserInfo=[dictData objectForKey:@"UserInfo"];
                         
                         [resultLogInfoArray addObject:cLogObject];

@@ -205,7 +205,6 @@
     
     if (iDataNum>0) {
         NSInteger iViewExecuteUsersW=CGRectGetWidth(_viewExecuteUsers.frame);
-        //NSInteger iUserNameSize=KEachExecuteUsersHeight;
         NSInteger iUserNameW=KEachExecuteUsersHeight;
         NSInteger iUserNameH=KEachExecuteUsersHeight;
         NSInteger iTaskProgressW=(iViewExecuteUsersW-iUserNameW*KEachExecuteUsersRowNum)/KEachExecuteUsersRowNum;

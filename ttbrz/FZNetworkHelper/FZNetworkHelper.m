@@ -14,8 +14,8 @@
 #define iTimeout             8.0
 #define iTimeoutForPost      30.0
 
-#define webServerURL         @"http://testwww.ttbrz.cn/"
-#define serverURL            @"http://testwww.ttbrz.cn/"
+#define webServerURL         @"http://www.ttbrz.cn/"
+#define serverURL            @"http://www.ttbrz.cn/"
 #define boundary_ID          @"boundary_upLoad"
 
 @implementation FZNetworkHelper
