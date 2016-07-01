@@ -561,8 +561,7 @@
             }];
         }else{
             //文件在线预览
-            //1、调用地址：http://officeweb365.com/o/?i=5510&furl=http://testfile.ttbrz.cn/+文件路径
-            NSString *sUrl=[NSString stringWithFormat:@"http://officeweb365.com/o/?i=5510&furl=http://testfile.ttbrz.cn%@",btnObj.accessibilityLabel];
+            NSString *sUrl=[NSString stringWithFormat:@"http://officeweb365.com/o/?i=5510&furl=http://file.ttbrz.cn%@",btnObj.accessibilityLabel];
             
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:sUrl]];
             

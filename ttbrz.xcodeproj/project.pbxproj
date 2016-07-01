@@ -73,6 +73,7 @@
 		18398F411CBDFB18001CDBA1 /* UIViewControllerTaskSelectKanBan.m in Sources */ = {isa = PBXBuildFile; fileRef = 18398F401CBDFB18001CDBA1 /* UIViewControllerTaskSelectKanBan.m */; };
 		18398F451CBE1573001CDBA1 /* TbCellTaskKanBan.m in Sources */ = {isa = PBXBuildFile; fileRef = 18398F431CBE1573001CDBA1 /* TbCellTaskKanBan.m */; };
 		18398F461CBE1573001CDBA1 /* TbCellTaskKanBan.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18398F441CBE1573001CDBA1 /* TbCellTaskKanBan.xib */; };
+		18423E731D05594B00FA4876 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18423E721D05594B00FA4876 /* Images.xcassets */; };
 		18433A161C8EBAEF0086858E /* logDetailLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 18433A151C8EBAEF0086858E /* logDetailLine.png */; };
 		18433A1E1C8EC81B0086858E /* docx.png in Resources */ = {isa = PBXBuildFile; fileRef = 18433A181C8EC81B0086858E /* docx.png */; };
 		18433A1F1C8EC81B0086858E /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 18433A191C8EC81B0086858E /* img.png */; };
@@ -259,6 +260,7 @@
 		18398F431CBE1573001CDBA1 /* TbCellTaskKanBan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TbCellTaskKanBan.m; sourceTree = "<group>"; };
 		18398F441CBE1573001CDBA1 /* TbCellTaskKanBan.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TbCellTaskKanBan.xib; sourceTree = "<group>"; };
 		183A97AE1CC5DAAC00810D8E /* ttbrz-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ttbrz-Prefix.pch"; sourceTree = "<group>"; };
+		18423E721D05594B00FA4876 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18433A151C8EBAEF0086858E /* logDetailLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logDetailLine.png; sourceTree = "<group>"; };
 		18433A181C8EC81B0086858E /* docx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docx.png; sourceTree = "<group>"; };
 		18433A191C8EC81B0086858E /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				182194BC1C740F05004C10B9 /* Assets.xcassets */,
 				182194BE1C740F05004C10B9 /* LaunchScreen.storyboard */,
 				182194C11C740F05004C10B9 /* Info.plist */,
+				18423E721D05594B00FA4876 /* Images.xcassets */,
 				182194B01C740F05004C10B9 /* Supporting Files */,
 			);
 			path = ttbrz;
@@ -944,6 +947,7 @@
 				1844B1E01CBCE34B00373507 /* taskFinish_no.png in Resources */,
 				18433A221C8EC81B0086858E /* xls.png in Resources */,
 				182195011C741B6D004C10B9 /* notice.png in Resources */,
+				18423E731D05594B00FA4876 /* Images.xcassets in Resources */,
 				1850EC8B1C8D7F90009E7651 /* TbCellLog.xib in Resources */,
 				1823C0CE1CC20DD700379F3F /* teamTaskDepartmentIcon.png in Resources */,
 				186F3B431CAE184700FC20DF /* TbCellTaskMember.xib in Resources */,
@@ -1180,8 +1184,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ttbrz/ttbrz-Prefix.pch";
 				INFOPLIST_FILE = ttbrz/Info.plist;
@@ -1189,7 +1194,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KMHZTechnology.ttbrz;
 				PRODUCT_NAME = "天天报";
-				PROVISIONING_PROFILE = "d40c6d03-32a0-4062-a1a6-731367e9de61";
+				PROVISIONING_PROFILE = "a5402281-88e3-451d-a3a3-a2d08613d43c";
 			};
 			name = Debug;
 		};
@@ -1197,8 +1202,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ttbrz/ttbrz-Prefix.pch";
 				INFOPLIST_FILE = ttbrz/Info.plist;
@@ -1206,7 +1212,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KMHZTechnology.ttbrz;
 				PRODUCT_NAME = "天天报";
-				PROVISIONING_PROFILE = "d40c6d03-32a0-4062-a1a6-731367e9de61";
+				PROVISIONING_PROFILE = "a5402281-88e3-451d-a3a3-a2d08613d43c";
 			};
 			name = Release;
 		};

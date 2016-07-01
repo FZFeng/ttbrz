@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ttbrz/UIViewControllerTeamLog.m"
-            timestampString = "484458803.80276"
+            timestampString = "489056301.366701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "782"
-            endingLineNumber = "782"
+            startingLineNumber = "781"
+            endingLineNumber = "781"
             landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "5">
          </BreakpointContent>
@@ -496,6 +496,22 @@
             startingLineNumber = "203"
             endingLineNumber = "203"
             landmarkName = "+dataTaskWithUrl:arryPara:requestMethodType:fatherObject:bShowSuccessMsg:block:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ttbrz/UIViewControllerTeamTask.m"
+            timestampString = "488518041.30743"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

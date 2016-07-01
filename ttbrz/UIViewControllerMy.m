@@ -61,9 +61,7 @@
         [self.navigationController pushViewController:aboutView animated:YES];
         
     }else if (indexPath.section==1) {
-        if (indexPath.row==0) {
-            //检查新版本
-        }else if (indexPath.row==1){
+        if (indexPath.row==0){
             //意见反馈
             [self hideSuggestionView];
             
@@ -172,7 +170,7 @@
             return 1;
             break;
         }case 1:{
-            return 3;
+            return 2;
             break;
         }
         default:{
@@ -264,6 +262,7 @@
                 NSString *sIconName;
                 NSString *sTitle;
                 
+                /*
                 if (indexPath.row==0) {
                     sIconName=@"my_check.png";
                     sTitle=@"检查新版本";
@@ -271,6 +270,14 @@
                     sIconName=@"my_suggest.png";
                     sTitle=@"意见反馈";
                 }else{
+                    sIconName=@"my_about.png";
+                    sTitle=@"关于";
+                }*/
+                
+                if (indexPath.row==0) {
+                    sIconName=@"my_suggest.png";
+                    sTitle=@"意见反馈";
+                }else if (indexPath.row==1){
                     sIconName=@"my_about.png";
                     sTitle=@"关于";
                 }
