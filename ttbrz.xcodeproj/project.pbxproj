@@ -417,10 +417,10 @@
 		182194AF1C740F05004C10B9 /* ttbrz */ = {
 			isa = PBXGroup;
 			children = (
-				182194E21C741B1C004C10B9 /* PublicClass */,
-				182194CB1C741A15004C10B9 /* FZClass */,
-				182194C91C7419F8004C10B9 /* BusinessClass */,
-				182194C71C7419D6004C10B9 /* ViewController */,
+				18C912FB1D34D38F0072579E /* ViewModels */,
+				18C912F91D34D35B0072579E /* Views */,
+				18C912F81D34D3510072579E /* Models */,
+				182194C71C7419D6004C10B9 /* Controller */,
 				182194B31C740F05004C10B9 /* AppDelegate.h */,
 				182194B41C740F05004C10B9 /* AppDelegate.m */,
 				182194B91C740F05004C10B9 /* Main.storyboard */,
@@ -442,7 +442,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		182194C71C7419D6004C10B9 /* ViewController */ = {
+		182194C71C7419D6004C10B9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				18D07A3C1CAD2D36006225A4 /* MainView */,
@@ -451,54 +451,7 @@
 				18D07A2B1CAD18C9006225A4 /* Integral */,
 				18D07A2C1CAD18D8006225A4 /* My */,
 			);
-			name = ViewController;
-			sourceTree = "<group>";
-		};
-		182194C91C7419F8004C10B9 /* BusinessClass */ = {
-			isa = PBXGroup;
-			children = (
-				1821258A1C7E9625006C8585 /* BusinessBase.h */,
-				1821258B1C7E9625006C8585 /* BusinessBase.m */,
-				1821258C1C7E9625006C8585 /* ClassUser.h */,
-				1821258D1C7E9625006C8585 /* ClassUser.m */,
-				185F41A91C898AF3007B3C2E /* ClassLog.h */,
-				185F41AA1C898AF3007B3C2E /* ClassLog.m */,
-				1849D2BE1CA90303001F3A4E /* ClassSearchAndMessage.h */,
-				1849D2BF1CA90303001F3A4E /* ClassSearchAndMessage.m */,
-				18D07A361CAD1EFA006225A4 /* ClassTask.h */,
-				18D07A371CAD1EFA006225A4 /* ClassTask.m */,
-				186F3B4A1CAE568B00FC20DF /* ClassIntegral.h */,
-				186F3B4B1CAE568B00FC20DF /* ClassIntegral.m */,
-				187BAB8D1CCDECE900FA3589 /* ClassMy.h */,
-				187BAB8E1CCDECE900FA3589 /* ClassMy.m */,
-			);
-			name = BusinessClass;
-			sourceTree = "<group>";
-		};
-		182194CB1C741A15004C10B9 /* FZClass */ = {
-			isa = PBXGroup;
-			children = (
-				182194EF1C741B6D004C10B9 /* FZNetworkHelper */,
-				182194CC1C741A47004C10B9 /* Controls */,
-			);
-			name = FZClass;
-			sourceTree = "<group>";
-		};
-		182194CC1C741A47004C10B9 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				18B4EFE41CAAA764001C2C8B /* UIBarButtonItem+Badge.h */,
-				18B4EFE51CAAA764001C2C8B /* UIBarButtonItem+Badge.m */,
-				1831B7B11C8FFF610054067A /* FZRefreshTableView */,
-				182125941C7ED010006C8585 /* FZNoticeView */,
-				182125901C7EA239006C8585 /* FZTextField */,
-				18334B141C76B56D0051242C /* TaskProgress */,
-				182374761C75AA3E00000FE7 /* CalendarDateView */,
-				182374721C75666A00000FE7 /* FZDatePickerView */,
-				1821950F1C745088004C10B9 /* DownMenuView */,
-				1821950B1C744DD4004C10B9 /* PopoverView */,
-			);
-			name = Controls;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		182194E21C741B1C004C10B9 /* PublicClass */ = {
@@ -753,6 +706,53 @@
 				186F3B601CAE835D00FC20DF /* my_suggest.png */,
 			);
 			name = icon;
+			sourceTree = "<group>";
+		};
+		18C912F81D34D3510072579E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				182194EF1C741B6D004C10B9 /* FZNetworkHelper */,
+				182194E21C741B1C004C10B9 /* PublicClass */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		18C912F91D34D35B0072579E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18B4EFE41CAAA764001C2C8B /* UIBarButtonItem+Badge.h */,
+				18B4EFE51CAAA764001C2C8B /* UIBarButtonItem+Badge.m */,
+				1831B7B11C8FFF610054067A /* FZRefreshTableView */,
+				182125941C7ED010006C8585 /* FZNoticeView */,
+				182125901C7EA239006C8585 /* FZTextField */,
+				18334B141C76B56D0051242C /* TaskProgress */,
+				182374761C75AA3E00000FE7 /* CalendarDateView */,
+				182374721C75666A00000FE7 /* FZDatePickerView */,
+				1821950F1C745088004C10B9 /* DownMenuView */,
+				1821950B1C744DD4004C10B9 /* PopoverView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		18C912FB1D34D38F0072579E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1821258A1C7E9625006C8585 /* BusinessBase.h */,
+				1821258B1C7E9625006C8585 /* BusinessBase.m */,
+				1821258C1C7E9625006C8585 /* ClassUser.h */,
+				1821258D1C7E9625006C8585 /* ClassUser.m */,
+				185F41A91C898AF3007B3C2E /* ClassLog.h */,
+				185F41AA1C898AF3007B3C2E /* ClassLog.m */,
+				1849D2BE1CA90303001F3A4E /* ClassSearchAndMessage.h */,
+				1849D2BF1CA90303001F3A4E /* ClassSearchAndMessage.m */,
+				18D07A361CAD1EFA006225A4 /* ClassTask.h */,
+				18D07A371CAD1EFA006225A4 /* ClassTask.m */,
+				186F3B4A1CAE568B00FC20DF /* ClassIntegral.h */,
+				186F3B4B1CAE568B00FC20DF /* ClassIntegral.m */,
+				187BAB8D1CCDECE900FA3589 /* ClassMy.h */,
+				187BAB8E1CCDECE900FA3589 /* ClassMy.m */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		18D07A241CAD0D64006225A4 /* Task */ = {
@@ -1194,7 +1194,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KMHZTechnology.ttbrz;
 				PRODUCT_NAME = "天天报";
-				PROVISIONING_PROFILE = "a5402281-88e3-451d-a3a3-a2d08613d43c";
+				PROVISIONING_PROFILE = "5265ca66-1b84-4184-969e-a72e17d9b7db";
 			};
 			name = Debug;
 		};
@@ -1212,7 +1212,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KMHZTechnology.ttbrz;
 				PRODUCT_NAME = "天天报";
-				PROVISIONING_PROFILE = "a5402281-88e3-451d-a3a3-a2d08613d43c";
+				PROVISIONING_PROFILE = "5265ca66-1b84-4184-969e-a72e17d9b7db";
 			};
 			name = Release;
 		};
